@@ -1,0 +1,6 @@
+/* Tracklist.module.css */
+.tracklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* space between each Track component */
+}
