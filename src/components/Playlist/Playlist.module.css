@@ -1,0 +1,70 @@
+/* Playlist.module.css */
+.playlistContainer {
+  background-color: #282828;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.playlistHeader {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ff4500;
+  padding-bottom: 5px;
+}
+
+.trackItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #404040;
+}
+
+.trackDetails {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.trackCover {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.trackName {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.trackAlbum {
+  font-size: 14px;
+  color: #bbbbbb;
+  margin-left: auto;
+  padding-left: 20px;
+}
+
+.addButton {
+  background-color: #ff4500;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.addButton:hover {
+  background-color: #ff5733;
+}
+
+/* Adding animation for hover effects on track items */
+.trackItem:hover {
+  background-color: #333333;
+}

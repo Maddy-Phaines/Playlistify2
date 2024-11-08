@@ -11,11 +11,7 @@ interface TracklistProps {
 }
 
 // Tracklist component
-const Tracklist: React.FC<TracklistProps> = ({
-  tracks,
-  onAddToPlaylist,
-  onRemoveFromPlaylist,
-}) => {
+const Tracklist: React.FC<TracklistProps> = ({ tracks, onAddToPlaylist }) => {
   return (
     <div className={styles.tracklist}>
       {tracks.map((track) => (
@@ -23,9 +19,6 @@ const Tracklist: React.FC<TracklistProps> = ({
           key={track.id}
           track={track}
           onAddToPlaylist={() => onAddToPlaylist(track.id)}
-          onRemoveFromPlaylist={() =>
-            onRemoveFromPlaylist && onRemoveFromPlaylist(track.id)
-          }
         />
       ))}
     </div>
@@ -33,3 +26,6 @@ const Tracklist: React.FC<TracklistProps> = ({
 };
 
 export default Tracklist;
+/*     onRemoveFromPlaylist={() =>
+            onRemoveFromPlaylist && onRemoveFromPlaylist(track.id)
+          }   onRemoveFromPlaylist,*/

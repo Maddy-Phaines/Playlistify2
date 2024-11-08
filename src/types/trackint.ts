@@ -5,4 +5,5 @@ export interface Track {
   artist: string;
   cover: string;
   duration: string;
+  album: string;
 }
