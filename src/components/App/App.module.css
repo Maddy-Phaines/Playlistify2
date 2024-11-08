@@ -1,0 +1,14 @@
+/* App.module.css */
+.appContainer {
+  background-color: #121212; /* Dark background */
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.header {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: #30d158; /* Neon green */
+}
