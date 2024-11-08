@@ -1,9 +1,14 @@
-import React from "react";
 import styles from "./SearchBar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faSearch, faList } from "@fortawesome/free-solid-svg-icons";
 
-function SearchBar({ query, setQuery, onSearch }) {
+interface SearchBarProps {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  onSearch: (query: string) => void;
+}
+
+function SearchBar({ query, setQuery, onSearch }: SearchBarProps) {
   const handleSearchButtonClick = () => {
     onSearch(query);
   };
@@ -14,6 +19,7 @@ function SearchBar({ query, setQuery, onSearch }) {
           {/* Home Icon */}
           <FontAwesomeIcon
             icon={faHome}
+            style={{ color: "#ccc", fontSize: "18px" }}
             className={styles["search-bar-home"]}
           />
         </div>
@@ -30,7 +36,7 @@ function SearchBar({ query, setQuery, onSearch }) {
           </form>
           {/* Divider */}
           <div className={styles["search-bar-divider"]}></div>
-
+          <FontAwesomeIcon icon={faList} />
           {/* Search Icon */}
           <button onClick={handleSearchButtonClick}>
             <FontAwesomeIcon

@@ -1,15 +1,16 @@
 import { useState } from "react";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../Searchbar/Searchbar";
 import Tracklist from "../Tracklist/Tracklist";
-import SearchResults from "../SearchResults/SearchResults";
+import SearchResults from "../searchresults/Searchresults";
+import { Track as TrackType } from "../../types/trackint";
 
 function App() {
-  const [searchResults, setSearchResults] = useState([]);
-  const [playlist, setPlaylist] = useState([]);
-  const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<TrackType[]>([]);
+  const [playlist, setPlaylist] = useState<TrackType[]>([]);
+  const [query, setQuery] = useState<string>("");
 
-  // Sample data for tracks (this could also come from an API call)
-  const tracks = [
+  // Sample data for tracks
+  const tracks: TrackType[] = [
     {
       id: 1,
       title: "Taste",
@@ -32,41 +33,33 @@ function App() {
       duration: "2:51",
     },
   ];
-  const handleSearch = (query) => {
+
+  const handleSearch = (query: string) => {
     const filteredResults = tracks.filter((track) =>
       track.title.toLowerCase().includes(query.toLowerCase())
     );
     setSearchResults(filteredResults);
   };
 
-  const addToPlaylist = (trackId) => {
+  const addToPlaylist = (trackId: number) => {
     const trackToAdd = searchResults.find((track) => track.id === trackId);
-    if (trackToAdd && !playlist.find((track) => track.id === trackId)) {
-      setPlaylist((prevPlaylist) => [...prevPlaylist, trackToAdd]);
+    if (trackToAdd && !playlist.some((track) => track.id === trackId)) {
+      setPlaylist((prev) => [...prev, trackToAdd]);
     }
   };
 
-  const removeFromPlaylist = (trackId) => {
-    setPlaylist((prevPlaylist) =>
-      prevPlaylist.filter((track) => track.id !== trackId)
-    );
+  const removeFromPlaylist = (trackId: number) => {
+    setPlaylist((prev) => prev.filter((track) => track.id !== trackId));
   };
 
   return (
     <>
       <h1>PlayListify</h1>
-      {/* Search bar that handles search on input */}
-      <SearchBar
-        query={query}
-        setQuery={setQuery}
-        onSearch={handleSearch}
-      />{" "}
-      {/* Search Results Section */}
+      <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
       <SearchResults
         searchResults={searchResults}
         onAddToPlaylist={addToPlaylist}
       />
-      {/* Playlist section */}
       <h2>Your Playlist</h2>
       <Tracklist
         tracks={playlist}

@@ -1,27 +1,35 @@
-import React, { useState } from "react";
 import Track from "../Track/Track";
 import styles from "./Tracklist.module.css";
-import PropTypes from "prop-types";
+// Importing Track interface with an alias in a component file
+import { Track as TrackType } from "../../types/trackint";
 
-const Tracklist = ({ tracks = [], onAddToPlaylist, onRemoveFromPlaylist }) => {
+// Define a TypeScript interface for a track
+interface TracklistProps {
+  tracks: TrackType[];
+  onAddToPlaylist: (trackId: number) => void;
+  onRemoveFromPlaylist?: (trackId: number) => void; // Make this optional
+}
+
+// Tracklist component
+const Tracklist: React.FC<TracklistProps> = ({
+  tracks,
+  onAddToPlaylist,
+  onRemoveFromPlaylist,
+}) => {
   return (
     <div className={styles.tracklist}>
       {tracks.map((track) => (
         <Track
           key={track.id}
           track={track}
-          onAddToPlaylist={onAddToPlaylist}
-          onRemoveFromPlaylist={onRemoveFromPlaylist}
+          onAddToPlaylist={() => onAddToPlaylist(track.id)}
+          onRemoveFromPlaylist={() =>
+            onRemoveFromPlaylist && onRemoveFromPlaylist(track.id)
+          }
         />
       ))}
     </div>
   );
-};
-
-Tracklist.propTypes = {
-  tracks: PropTypes.array.isRequired,
-  onAddToPlaylist: PropTypes.func.isRequired,
-  onRemoveFromPlaylist: PropTypes.func,
 };
 
 export default Tracklist;

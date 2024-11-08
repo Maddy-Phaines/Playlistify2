@@ -1,14 +1,23 @@
-import React from "react";
-import styles from "./SearchResults.module.css";
 import Tracklist from "../Tracklist/Tracklist";
+import { Track as TrackType } from "../../types/trackint";
 
-function SearchResults({ searchResults, onAddToPlaylist }) {
+// Define a TypeScript interface for a track
+interface SearchResultsProps {
+  searchResults: TrackType[]; // Using TrackType alias here
+  onAddToPlaylist: (trackId: number) => void;
+  onRemoveFromPlaylist?: (trackId: number) => void; // Make this optional
+}
+
+const SearchResults: React.FC<SearchResultsProps> = ({
+  searchResults,
+  onAddToPlaylist,
+}) => {
   return (
-    <div className={styles.resultsContainer}>
+    <div>
       <h2>Search Results</h2>
       <Tracklist tracks={searchResults} onAddToPlaylist={onAddToPlaylist} />
     </div>
   );
-}
+};
 
 export default SearchResults;
