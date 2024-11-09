@@ -1,0 +1,14 @@
+/* src/components/SongItem.module.css */
+.songItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.songDetails {
+  flex-grow: 1;
+}
+
+.duration {
+  color: grey;
+}

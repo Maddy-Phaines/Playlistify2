@@ -10,7 +10,7 @@ interface SearchResultsProps {
   onAddToPlaylist: (trackId: number) => void;
 }
 
-const searchResults: React.FC<SearchResultsProps> = ({
+const SearchResults: React.FC<SearchResultsProps> = ({
   topArtist,
   songs,
   onAddToPlaylist,
