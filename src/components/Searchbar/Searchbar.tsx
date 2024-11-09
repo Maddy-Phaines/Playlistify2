@@ -14,11 +14,6 @@ function SearchBar({ query, setQuery, onSearch }: SearchBarProps) {
     onSearch(query);
   };
 
-  /* const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      onSearch(query);
-    } onKeyDown={handleKeyDown}
-  }; */
   return (
     <>
       <div className={styles.searchContainer}>

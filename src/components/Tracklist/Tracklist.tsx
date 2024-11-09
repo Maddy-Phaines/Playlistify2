@@ -6,19 +6,22 @@ import { Track as TrackType } from "../../types/trackint";
 // Define a TypeScript interface for a track
 interface TracklistProps {
   tracks: TrackType[];
-  onAddToPlaylist: (trackId: number) => void;
-  onRemoveFromPlaylist?: (trackId: number) => void; // Make this optional
+  // onAddToPlaylist: (trackId: number) => void;
+  onRemoveFromPlaylist: (trackId: number) => void; // Make this optional
 }
 
 // Tracklist component
-const Tracklist: React.FC<TracklistProps> = ({ tracks, onAddToPlaylist }) => {
+const Tracklist: React.FC<TracklistProps> = ({
+  tracks,
+  onRemoveFromPlaylist,
+}) => {
   return (
     <div className={styles.tracklist}>
       {tracks.map((track) => (
         <Track
           key={track.id}
           track={track}
-          onAddToPlaylist={() => onAddToPlaylist(track.id)}
+          onAddToPlaylist={() => onRemoveFromPlaylist(track.id)}
         />
       ))}
     </div>

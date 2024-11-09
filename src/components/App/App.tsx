@@ -5,11 +5,17 @@ import SearchResults from "../searchresults/Searchresults";
 import { Track as TrackType } from "../../types/trackint";
 import styles from "./App.module.css";
 import Playlist from "../Playlist/Playlist";
-
+/*         <Tracklist
+          tracks={playlistTracks}
+          onRemoveFromPlaylist={removeFromPlaylist}
+        /> */
 function App() {
   const [searchResults, setSearchResults] = useState<TrackType[]>([]);
   const [playlistTracks, setPlaylist] = useState<TrackType[]>([]);
+  const [playlistName, setPlaylistName] = useState("My Playlist");
   const [query, setQuery] = useState<string>("");
+  const [playListNameQuery, setPlaylistNameQuery] = useState<string>("");
+  const [hasSearched, setHasSearched] = useState<boolean>(false);
 
   // Sample data for tracks
   const tracks: TrackType[] = [
@@ -64,6 +70,7 @@ function App() {
   ];
 
   const handleSearch = (query: string) => {
+    setHasSearched(true);
     const filteredResults = tracks.filter((track) =>
       track.title.toLowerCase().includes(query.toLowerCase())
     );
@@ -81,6 +88,8 @@ function App() {
     setPlaylist((prev) => prev.filter((track) => track.id !== trackId));
   };
 
+  const handlePlaylistName = (playListName: string) => {};
+
   return (
     <>
       <div className={styles.appContainer}>
@@ -90,13 +99,14 @@ function App() {
           songs={tracks}
           searchResults={searchResults}
           onAddToPlaylist={addToPlaylist}
+          hasSearched={hasSearched}
           topArtist={searchResults[0]} // make sure there's a condition that searchResults is not empty
         />
-        <h2 className={styles.header}>Your Playlist</h2>
-        <Tracklist
+        <Playlist
           tracks={playlistTracks}
           onRemoveFromPlaylist={removeFromPlaylist}
-          onAddToPlaylist={addToPlaylist}
+          onSetPlaylistName={handlePlaylistName}
+          query={playListNameQuery}
         />
       </div>
     </>
