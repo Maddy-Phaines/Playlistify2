@@ -72,7 +72,7 @@ function App() {
 
   const addToPlaylist = (trackId: number) => {
     const trackToAdd = searchResults.find((track) => track.id === trackId);
-    if (trackToAdd && !playlist.some((track) => track.id === trackId)) {
+    if (trackToAdd && !playlistTracks.some((track) => track.id === trackId)) {
       setPlaylist((prev) => [...prev, trackToAdd]);
     }
   };
@@ -87,8 +87,10 @@ function App() {
         <h1 className={styles.header}>PlayListify</h1>
         <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
         <SearchResults
+          songs={tracks}
           searchResults={searchResults}
           onAddToPlaylist={addToPlaylist}
+          topArtist={searchResults[0]} // make sure there's a condition that searchResults is not empty
         />
         <h2 className={styles.header}>Your Playlist</h2>
         <Tracklist
