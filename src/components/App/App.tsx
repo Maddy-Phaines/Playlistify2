@@ -63,12 +63,11 @@ function App() {
     },
   ];
 
-  const mockPlaylist = [
-    {
-      playlistName: "My mood music (the sad version)",
-      playlistTracks: ["songA", "songB", "songC", "songC", "songD", "songE"],
-    },
-  ];
+  const playlistTracks = {
+    playlistName: "My Fun Playlist",
+    trackA: { id: 1, name: "Song A", artist: "Regina Spektor" },
+    trackB: { id: 1, name: "Song B", artist: "Regina Spektor" },
+  };
 
   const handleSearch = (query: string) => {
     const filteredResults = tracks.filter((track) =>
@@ -98,11 +97,6 @@ function App() {
           onAddToPlaylist={addToPlaylist}
         />
         <h2 className={styles.header}>Your Playlist</h2>
-        <Playlist
-          tracks={playlist}
-          onRemoveFromPlaylist={removeFromPlaylist}
-          onAddToPlaylist={addToPlaylist}
-        />
         <Tracklist
           tracks={playlist}
           onAddToPlaylist={addToPlaylist}

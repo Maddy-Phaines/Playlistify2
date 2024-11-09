@@ -1,6 +1,6 @@
-import styles from "./SearchBar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faSearch, faList } from "@fortawesome/free-solid-svg-icons";
+import styles from "./Searchbar.module.css";
 
 interface SearchBarProps {
   query: string;
@@ -9,9 +9,16 @@ interface SearchBarProps {
 }
 
 function SearchBar({ query, setQuery, onSearch }: SearchBarProps) {
-  const handleSearchButtonClick = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     onSearch(query);
   };
+
+  /* const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      onSearch(query);
+    } onKeyDown={handleKeyDown}
+  }; */
   return (
     <>
       <div className={styles.searchContainer}>
@@ -24,26 +31,33 @@ function SearchBar({ query, setQuery, onSearch }: SearchBarProps) {
           />
         </div>
         <div className={styles["search-bar-container"]}>
-          <form>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="search-input" className={styles.visuallyHidden}>
+              Search
+            </label>
             {/* Search Input */}
             <input
+              id="search-input"
               className={styles["search-bar-input"]}
               type="text"
               placeholder="What do you want to play?"
+              aria-label="Search music and podcasts"
               value={query}
-              onChange={(e) => setQuery(e.target.value)} // Update the query state variable's value with the user input as it's typed. Keeps 'query' in sync with input
+              onChange={(e) => setQuery(e.target.value)}
+              // Update the query state variable's value with the user input as it's typed. Keeps 'query' in sync with input
             />
+
+            {/* Divider */}
+            <div className={styles["search-bar-divider"]}></div>
+            <FontAwesomeIcon icon={faList} />
+            {/* Search Icon */}
+            <button type="submit" aria-label="Perform search">
+              <FontAwesomeIcon
+                icon={faSearch}
+                className={styles["search-bar-icon"]}
+              />
+            </button>
           </form>
-          {/* Divider */}
-          <div className={styles["search-bar-divider"]}></div>
-          <FontAwesomeIcon icon={faList} />
-          {/* Search Icon */}
-          <button onClick={handleSearchButtonClick}>
-            <FontAwesomeIcon
-              icon={faSearch}
-              className={styles["search-bar-icon"]}
-            />
-          </button>
         </div>
       </div>
     </>
