@@ -1,0 +1,17 @@
+/* src/components/ArtistProfile.module.css */
+.artistContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.artistImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.artistName {
+  font-size: 24px;
+  font-weight: bold;
+}
