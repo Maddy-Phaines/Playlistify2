@@ -1,4 +1,6 @@
 .resultsContainer {
-  background-color: #333;
-  color: antiquewhite;
+  /* src/components/SearchResults.module.css */
+  color: white;
+  background-color: black;
+  padding: 20px;
 }

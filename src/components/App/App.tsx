@@ -8,7 +8,7 @@ import Playlist from "../Playlist/Playlist";
 
 function App() {
   const [searchResults, setSearchResults] = useState<TrackType[]>([]);
-  const [playlist, setPlaylist] = useState<TrackType[]>([]);
+  const [playlistTracks, setPlaylist] = useState<TrackType[]>([]);
   const [query, setQuery] = useState<string>("");
 
   // Sample data for tracks
@@ -63,12 +63,6 @@ function App() {
     },
   ];
 
-  const playlistTracks = {
-    playlistName: "My Fun Playlist",
-    trackA: { id: 1, name: "Song A", artist: "Regina Spektor" },
-    trackB: { id: 1, name: "Song B", artist: "Regina Spektor" },
-  };
-
   const handleSearch = (query: string) => {
     const filteredResults = tracks.filter((track) =>
       track.title.toLowerCase().includes(query.toLowerCase())
@@ -98,9 +92,9 @@ function App() {
         />
         <h2 className={styles.header}>Your Playlist</h2>
         <Tracklist
-          tracks={playlist}
-          onAddToPlaylist={addToPlaylist}
+          tracks={playlistTracks}
           onRemoveFromPlaylist={removeFromPlaylist}
+          onAddToPlaylist={addToPlaylist}
         />
       </div>
     </>

@@ -1,21 +1,24 @@
 import Tracklist from "../Tracklist/Tracklist";
 import { Track as TrackType } from "../../types/trackint";
+import styles from "./SearchResults.module.css";
+import ArtistProfile from "./ArtistProfile";
+import SongList from "./SongList";
 
-// Define a TypeScript interface for a track
 interface SearchResultsProps {
-  searchResults: TrackType[]; // Using TrackType alias here
+  topArtist: TrackType;
+  songs: TrackType[];
   onAddToPlaylist: (trackId: number) => void;
-  onRemoveFromPlaylist?: (trackId: number) => void; // Make this optional
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({
-  searchResults,
+const searchResults: React.FC<SearchResultsProps> = ({
+  topArtist,
+  songs,
   onAddToPlaylist,
 }) => {
   return (
-    <div>
-      <h2>Search Results</h2>
-      <Tracklist tracks={searchResults} onAddToPlaylist={onAddToPlaylist} />
+    <div className={styles.resultsContainer}>
+      <ArtistProfile artist={topArtist} />
+      <SongList songs={songs} onAddToPlaylist={onAddToPlaylist} />
     </div>
   );
 };
