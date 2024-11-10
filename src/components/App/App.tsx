@@ -88,8 +88,6 @@ function App() {
     setPlaylist((prev) => prev.filter((track) => track.id !== trackId));
   };
 
-  const handlePlaylistName = (playListName: string) => {};
-
   return (
     <>
       <div className={styles.appContainer}>
@@ -105,8 +103,8 @@ function App() {
         <Playlist
           tracks={playlistTracks}
           onRemoveFromPlaylist={removeFromPlaylist}
-          onSetPlaylistName={handlePlaylistName}
-          query={playListNameQuery}
+          playlistName={playlistName}
+          setPlaylistName={setPlaylistName}
         />
       </div>
     </>

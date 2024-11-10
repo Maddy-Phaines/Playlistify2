@@ -17,43 +17,39 @@ const Playlist: React.FC<PlaylistProps> = ({
   playlistName,
   setPlaylistName,
 }) => {
-  const handleNameChange = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPlaylistName(e.target.value);
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
   return (
     <div className={styles.playlistContainer}>
-      <div className={styles.playlistHeader}>
-        <img
-          src="/path-to-your-image.jpg"
-          className={styles.playlistImage}
-          alt="Playlist"
+      <img
+        src="/path-to-your-image.jpg"
+        className={styles.playlistImage}
+        alt="Playlist"
+      />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={playlistName}
+          className={styles.playlistName}
+          onChange={handleNameChange}
         />
-        <form onSubmit={handleNameChange}>
-          <input
-            type="text"
-            value={playlistName}
-            onChange={(e) => setPlaylistNameQuery(e.target.value)}
-            className={styles.playlistName}
-          />
-        </form>
-      </div>
+        <button type="submit">playlist name</button>
+      </form>
       <div className={styles.trackList}>
-        {tracks.map((track, index) => (
-          <div
+        {tracks.map((track) => (
+          <Track
             key={track.id}
-            className={
-              index === tracks.length - 1 ? styles.lastItem : styles.trackItem
-            }
-          >
-            <Track
-              track={track}
-              onRemoveFromPlaylist={() => onRemoveFromPlaylist(track.id)}
-            />
-          </div>
+            track={track}
+            onRemoveFromPlaylist={() => onRemoveFromPlaylist(track.id)}
+          />
         ))}
       </div>
+      <h2 className={styles.playlistHeader}>{playlistName}</h2>
     </div>
   );
 };

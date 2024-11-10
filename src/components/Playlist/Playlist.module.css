@@ -39,6 +39,8 @@
 
 /* Playlist.module.css */
 .playlistContainer {
+  display: flex;
+  flex-direction: column;
   background-color: #121212; /* dark background */
   color: white;
   padding: 20px;
