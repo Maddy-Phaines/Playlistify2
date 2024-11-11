@@ -1,5 +1,6 @@
 import styles from "./Track.module.css";
 import { Track as TrackType } from "../../types/trackint";
+import Button from "../Button/Button";
 
 interface TrackProps {
   track: TrackType;
@@ -22,17 +23,13 @@ function Track({ track, onAddToPlaylist, onRemoveFromPlaylist }: TrackProps) {
       </div>
       <div>
         {onAddToPlaylist && (
-          <button onClick={() => onAddToPlaylist(track.id)}>
-            Add to Playlist
-          </button>
+          <Button onClick={() => onAddToPlaylist(track.id)} iconType="add" />
         )}
         {onRemoveFromPlaylist && (
-          <button
-            className={styles.btn}
+          <Button
             onClick={() => onRemoveFromPlaylist(track.id)}
-          >
-            Remove from Playlist
-          </button>
+            iconType="remove"
+          />
         )}
       </div>
     </div>

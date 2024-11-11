@@ -71,8 +71,17 @@ function App() {
 
   const handleSearch = (query: string) => {
     setHasSearched(true);
-    const filteredResults = tracks.filter((track) =>
-      track.title.toLowerCase().includes(query.toLowerCase())
+
+    if (!query.trim()) {
+      setSearchResults([]);
+
+      return;
+    }
+    const filteredResults = tracks.filter(
+      (track) =>
+        track.title.toLowerCase().includes(query.toLowerCase()) ||
+        track.artist.toLowerCase().includes(query.toLowerCase()) ||
+        track.album.toLowerCase().includes(query.toLowerCase())
     );
     setSearchResults(filteredResults);
   };

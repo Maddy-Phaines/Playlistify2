@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./SongItem.module.css";
 import { Track as TrackType } from "../../types/trackint";
+import Button from "../Button/Button";
 
 // SongItem: Displays an individual song.
 const SongItem: React.FC<{
@@ -18,9 +19,7 @@ const SongItem: React.FC<{
         <span className={styles.trackAlbum}>{song.album}</span>
       </div>
       <div className={styles.buttonContainer}>
-        <button onClick={() => onAddToPlaylist(song.id)}>
-          Add to Playlist
-        </button>
+        <Button onClick={() => onAddToPlaylist(song.id)} iconType="add" />
       </div>
     </div>
   );

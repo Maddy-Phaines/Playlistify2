@@ -33,7 +33,6 @@ function SearchBar({ query, setQuery, onSearch }: SearchBarProps) {
           className={styles.searchBarInput} // Check this is correct in your CSS file
         />
         <div className={styles.btnContainer}>
-          <FontAwesomeIcon icon={faList} />
           <button
             type="submit"
             aria-label="Perform search"
