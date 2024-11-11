@@ -1,6 +1,7 @@
 /* src/components/SongItem.module.css */
 .trackItem {
   display: flex;
+  background-color: rgba(0, 0, 0, 0.5); /* Translucent dark overlay */
   justify-content: space-between; /* Adjusts children to each side of container */
   align-items: center; /* Vertical alignment */
   padding: 10px 0;

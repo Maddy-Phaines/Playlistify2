@@ -27,7 +27,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 
   // If there are results, render the component normally
   return (
-    <div className={styles.resultsContainer}>
+    <div className={styles.resultsPanel}>
       {searchResults.length > 0 && topArtist && (
         <div className={styles.container}>
           <ArtistProfile artist={topArtist.artist} cover={topArtist.cover} />

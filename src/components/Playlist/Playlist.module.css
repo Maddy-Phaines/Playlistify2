@@ -40,11 +40,14 @@
 /* Playlist.module.css */
 .playlistContainer {
   display: flex;
+  flex: 1;
   flex-direction: column;
   background-color: #121212; /* dark background */
+  background-color: rgba(255, 39, 255, 0.3);
   color: white;
+  margin: 0 10px;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .playlistHeader {
@@ -62,10 +65,16 @@
 }
 
 .playlistName {
-  font-size: 24px;
-  font-weight: bold;
-  background-color: #333333;
-  color: antiquewhite;
+  width: 100%; /* Set width as needed */
+  border: none; /* Remove borders */
+  outline: none; /* Remove focus outline */
+  background: none; /* Remove background */
+  font-size: 1.2em; /* Adjust font size */
+  font-weight: bold; /* Make text bold */
+  color: #fff; /* Set text color */
+  text-align: left; /* Align text to the left */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Line style */
+  padding: 4px 0; /* Adjust vertical padding for spacing */
 }
 
 .trackList {
@@ -80,6 +89,10 @@
 .trackItem:hover {
   background: #333;
   cursor: pointer;
+}
+
+.hiddenBtn {
+  visibility: hidden;
 }
 
 .lastItem {

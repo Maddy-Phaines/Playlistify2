@@ -1,11 +1,13 @@
-.resultsContainer {
+.resultsPanel {
   /* src/components/SearchResults.module.css */
   color: white;
   background-color: #121212;
+  background-color: rgba(0, 0, 0, 0.5); /* Translucent dark overlay */
   padding: 20px;
-  border-radius: 12px;
-  margin: 20px 0;
+  border-radius: 4px;
+  margin: 0 10px;
   display: flex;
+  flex: 1;
   flex-direction: column;
   text-align: center;
 }

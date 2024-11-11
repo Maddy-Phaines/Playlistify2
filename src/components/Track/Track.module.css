@@ -36,6 +36,7 @@
 
 .trackItem {
   background-color: #282828;
+  background-color: rgba(0, 0, 0, 0.5); /* Translucent dark overlay */
   margin: 10px 0;
   padding: 15px;
   border-radius: 10px;

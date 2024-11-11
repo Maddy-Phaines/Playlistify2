@@ -100,6 +100,7 @@ function App() {
   return (
     <>
       <div className={styles.appContainer}>
+        <div className={styles.overlay}></div>
         <h1 className={styles.header}>PlayListify</h1>
         <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
         <div className={styles.bodyContainer}>

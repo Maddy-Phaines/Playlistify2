@@ -32,16 +32,18 @@ const Playlist: React.FC<PlaylistProps> = ({
         alt="Playlist"
       />
       <form onSubmit={handleSubmit}>
+        <button className={styles.hiddenBtn} type="submit">
+          playlist name
+        </button>
         <input
           type="text"
+          placeholder="Give your playlist a name..."
           value={playlistName}
           className={styles.playlistName}
           onChange={handleNameChange}
         />
-        <button type="submit">playlist name</button>
       </form>
       <div className={styles.trackList}>
-        <h2 className={styles.playlistHeader}>{playlistName}</h2>
         {tracks.map((track) => (
           <Track
             key={track.id}

@@ -1,6 +1,8 @@
 /* App.module.css */
 .appContainer {
+  position: relative;
   background-color: #000000; /* Dark background */
+  background-color: #2a0053; /* Dark purple base color */
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -11,6 +13,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 0, 83, 0.8);
+  z-index: -1;
 }
 .bodyContainer {
   display: flex;
