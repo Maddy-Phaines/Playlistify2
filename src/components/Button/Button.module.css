@@ -1,0 +1,11 @@
+.addButton {
+  background: none;
+  border: none;
+  color: inherit; /* Inherit color from parent, or set a specific color */
+  cursor: pointer;
+  font-size: 24px; /* Adjust size as needed */
+}
+
+.addButton:hover {
+  color: #fff; /* Example: Change to white on hover */
+}
