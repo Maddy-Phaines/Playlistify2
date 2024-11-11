@@ -21,7 +21,7 @@ function Track({ track, onAddToPlaylist, onRemoveFromPlaylist }: TrackProps) {
         <span className={styles.artist}>{track.artist}</span>
         <span className={styles.duration}>{track.duration}</span>
       </div>
-      <div>
+      <div className={styles.btnContainer}>
         {onAddToPlaylist && (
           <Button onClick={() => onAddToPlaylist(track.id)} iconType="add" />
         )}

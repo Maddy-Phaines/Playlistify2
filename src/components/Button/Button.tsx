@@ -12,9 +12,11 @@ const Button: React.FC<ButtonProps> = ({ onClick, iconType }) => {
   const icon = iconType === "add" ? faPlusCircle : faTimesCircle;
   return (
     <>
-      <button className={styles.addButton} onClick={onClick}>
-        <FontAwesomeIcon icon={icon} />
-      </button>
+      <div className={styles.btnContainer}>
+        <button className={styles.addButton} onClick={onClick}>
+          <FontAwesomeIcon icon={icon} />
+        </button>
+      </div>
     </>
   );
 };

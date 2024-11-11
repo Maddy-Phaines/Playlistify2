@@ -102,19 +102,21 @@ function App() {
       <div className={styles.appContainer}>
         <h1 className={styles.header}>PlayListify</h1>
         <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
-        <SearchResults
-          songs={tracks}
-          searchResults={searchResults}
-          onAddToPlaylist={addToPlaylist}
-          hasSearched={hasSearched}
-          topArtist={searchResults[0]} // make sure there's a condition that searchResults is not empty
-        />
-        <Playlist
-          tracks={playlistTracks}
-          onRemoveFromPlaylist={removeFromPlaylist}
-          playlistName={playlistName}
-          setPlaylistName={setPlaylistName}
-        />
+        <div className={styles.bodyContainer}>
+          <SearchResults
+            songs={tracks}
+            searchResults={searchResults}
+            onAddToPlaylist={addToPlaylist}
+            hasSearched={hasSearched}
+            topArtist={searchResults[0]} // make sure there's a condition that searchResults is not empty
+          />
+          <Playlist
+            tracks={playlistTracks}
+            onRemoveFromPlaylist={removeFromPlaylist}
+            playlistName={playlistName}
+            setPlaylistName={setPlaylistName}
+          />
+        </div>
       </div>
     </>
   );

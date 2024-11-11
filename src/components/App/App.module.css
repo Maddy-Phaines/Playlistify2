@@ -12,6 +12,13 @@
   justify-content: center;
   align-items: center;
 }
+.bodyContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+
+  gap: 2rem;
+}
 .header {
   font-family: "Roboto", sans-serif;
   font-size: 2rem;

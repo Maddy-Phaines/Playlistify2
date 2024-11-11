@@ -9,3 +9,7 @@
 .addButton:hover {
   color: #fff; /* Example: Change to white on hover */
 }
+
+.btnContainer {
+  display: flex;
+}
