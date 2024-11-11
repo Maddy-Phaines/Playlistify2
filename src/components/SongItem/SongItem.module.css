@@ -1,26 +1,17 @@
 /* src/components/SongItem.module.css */
-
-.trackDetails {
-  flex-grow: 1;
-}
-
-.duration {
-  color: grey;
-}
-
 .trackItem {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Adjusts children to each side of container */
+  align-items: center; /* Vertical alignment */
   padding: 10px 0;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #404040;
+  text-align: center;
 }
 
 .trackDetails {
-  flex-grow: 1;
   display: flex;
   align-items: center;
+  flex-grow: 1; /* Allows this container to take up as much space as possible */
+  text-align: center;
 }
 
 .trackCover {
@@ -29,21 +20,41 @@
   border-radius: 50%;
   background-size: cover;
   margin-right: 10px;
-}
-
-.trackName {
-  font-size: 16px;
-  color: #ffffff;
+  display: flex;
 }
 
 .trackAlbum {
-  font-size: 14px;
-  color: #bbbbbb;
-  margin-left: auto;
-  padding-left: 20px;
+  margin-left: 12px;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center; /* Center button within the container */
+  margin-left: 12px;
+  margin-right: 10px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid grey;
+  padding: 40px;
 }
 
-/* Adding animation for hover effects on track items */
-.trackItem:hover {
-  background-color: #333333;
+.trackInfo {
+  margin-left: 12px;
+}
+
+.title {
+  margin-left: 2px;
+}
+
+.artist {
+  margin-left: 12px;
+}
+
+.btn {
+}
+
+.duration {
+  margin-left: 12px;
 }

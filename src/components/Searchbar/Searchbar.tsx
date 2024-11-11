@@ -1,3 +1,4 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faSearch, faList } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Searchbar.module.css";
@@ -15,47 +16,34 @@ function SearchBar({ query, setQuery, onSearch }: SearchBarProps) {
   };
 
   return (
-    <>
-      <div className={styles.searchContainer}>
-        <div className={styles.homeContainer}>
-          {/* Home Icon */}
-          <FontAwesomeIcon
-            icon={faHome}
-            style={{ color: "#ccc", fontSize: "18px" }}
-            className={styles["search-bar-home"]}
-          />
-        </div>
-        <div className={styles["search-bar-container"]}>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="search-input" className={styles.visuallyHidden}>
-              Search
-            </label>
-            {/* Search Input */}
-            <input
-              id="search-input"
-              className={styles["search-bar-input"]}
-              type="text"
-              placeholder="What do you want to play?"
-              aria-label="Search music and podcasts"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              // Update the query state variable's value with the user input as it's typed. Keeps 'query' in sync with input
-            />
-
-            {/* Divider */}
-            <div className={styles["search-bar-divider"]}></div>
-            <FontAwesomeIcon icon={faList} />
-            {/* Search Icon */}
-            <button type="submit" aria-label="Perform search">
-              <FontAwesomeIcon
-                icon={faSearch}
-                className={styles["search-bar-icon"]}
-              />
-            </button>
-          </form>
-        </div>
+    <div className={styles.searchContainer}>
+      <div className={styles.homeContainer}>
+        <FontAwesomeIcon
+          icon={faHome}
+          style={{ color: "white", fontSize: "18px" }}
+        />
       </div>
-    </>
+      <form onSubmit={handleSubmit} className={styles.searchBarContainer}>
+        <input
+          id="search-input"
+          type="text"
+          placeholder="What do you want to play?"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className={styles.searchBarInput} // Check this is correct in your CSS file
+        />
+        <div className={styles.btnContainer}>
+          <FontAwesomeIcon icon={faList} />
+          <button
+            type="submit"
+            aria-label="Perform search"
+            className={styles.searchBarIcon}
+          >
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

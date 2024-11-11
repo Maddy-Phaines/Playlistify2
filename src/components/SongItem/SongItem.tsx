@@ -15,9 +15,13 @@ const SongItem: React.FC<{
           style={{ backgroundImage: `url(${song.cover})` }} // Use inline styles for dynamic image URLs
         />
         <span className={styles.trackName}>{song.title}</span>
+        <span className={styles.trackAlbum}>{song.album}</span>
       </div>
-      <span className={styles.trackAlbum}>{song.album}</span>
-      <button onClick={() => onAddToPlaylist(song.id)}>Add to Playlist</button>
+      <div className={styles.buttonContainer}>
+        <button onClick={() => onAddToPlaylist(song.id)}>
+          Add to Playlist
+        </button>
+      </div>
     </div>
   );
 };

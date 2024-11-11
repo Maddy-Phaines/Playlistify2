@@ -1,4 +1,19 @@
 /* src/components/SongList.module.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .songList {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
+  text-align: center;
+  background-color: blue;
+  flex-grow: 1;
+}
+
+ul {
+  list-style: none;
 }

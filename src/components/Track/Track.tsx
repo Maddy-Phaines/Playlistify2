@@ -9,11 +9,16 @@ interface TrackProps {
 
 function Track({ track, onAddToPlaylist, onRemoveFromPlaylist }: TrackProps) {
   return (
-    <div className={styles.container}>
-      <img src={track.cover} alt={`${track.title} cover`} />
+    <div className={styles.trackItem}>
+      <img
+        src={track.cover}
+        alt={`${track.title} cover`}
+        className={styles.cover}
+      />
       <div className={styles.trackInfo}>
-        <p>{track.title}</p>
-        <p>{track.artist}</p>
+        <span className={styles.title}>{track.title}</span>
+        <span className={styles.artist}>{track.artist}</span>
+        <span className={styles.duration}>{track.duration}</span>
       </div>
       <div>
         {onAddToPlaylist && (
@@ -22,11 +27,13 @@ function Track({ track, onAddToPlaylist, onRemoveFromPlaylist }: TrackProps) {
           </button>
         )}
         {onRemoveFromPlaylist && (
-          <button onClick={() => onRemoveFromPlaylist(track.id)}>
+          <button
+            className={styles.btn}
+            onClick={() => onRemoveFromPlaylist(track.id)}
+          >
             Remove from Playlist
           </button>
         )}
-        <span>{track.duration}</span>
       </div>
     </div>
   );

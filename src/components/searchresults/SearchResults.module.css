@@ -1,6 +1,16 @@
 .resultsContainer {
   /* src/components/SearchResults.module.css */
   color: white;
-  background-color: black;
+  background-color: #121212;
   padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }

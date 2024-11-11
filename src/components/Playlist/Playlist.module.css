@@ -64,6 +64,8 @@
 .playlistName {
   font-size: 24px;
   font-weight: bold;
+  background-color: #333333;
+  color: antiquewhite;
 }
 
 .trackList {
@@ -73,6 +75,11 @@
 .trackItem {
   padding: 10px 0; /* spacing between items */
   border-bottom: 1px solid grey; /* subtle division line for each item */
+}
+
+.trackItem:hover {
+  background: #333;
+  cursor: pointer;
 }
 
 .lastItem {

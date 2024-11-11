@@ -41,6 +41,7 @@ const Playlist: React.FC<PlaylistProps> = ({
         <button type="submit">playlist name</button>
       </form>
       <div className={styles.trackList}>
+        <h2 className={styles.playlistHeader}>{playlistName}</h2>
         {tracks.map((track) => (
           <Track
             key={track.id}
@@ -49,7 +50,6 @@ const Playlist: React.FC<PlaylistProps> = ({
           />
         ))}
       </div>
-      <h2 className={styles.playlistHeader}>{playlistName}</h2>
     </div>
   );
 };

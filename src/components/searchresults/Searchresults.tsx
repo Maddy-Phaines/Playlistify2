@@ -29,10 +29,10 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   return (
     <div className={styles.resultsContainer}>
       {searchResults.length > 0 && topArtist && (
-        <>
+        <div className={styles.container}>
           <ArtistProfile artist={topArtist.artist} cover={topArtist.cover} />
           <SongList songs={searchResults} onAddToPlaylist={onAddToPlaylist} />
-        </>
+        </div>
       )}
     </div>
   );

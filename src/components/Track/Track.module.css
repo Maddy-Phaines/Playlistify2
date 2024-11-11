@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid grey;
+  padding: 40px;
+}
+
+.trackInfo {
+  margin-left: 12px;
+}
+
+.title {
+  margin-left: 2px;
+}
+
+.artist {
+  margin-left: 12px;
+}
+
+.btn {
+  margin-left: 12px;
+  margin-right: 10px;
+}
+
+.duration {
+  margin-left: 12px;
+}
+
+.trackItem {
+  background-color: #282828;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.trackItem:hover {
+  transform: scale(1.02);
+  background-color: #3a3a3a;
+}
