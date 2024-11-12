@@ -1,6 +1,5 @@
 import { useState } from "react";
 import SearchBar from "../Searchbar/Searchbar";
-import Tracklist from "../Tracklist/Tracklist";
 import SearchResults from "../searchresults/Searchresults";
 import { Track as TrackType } from "../../types/trackint";
 import styles from "./App.module.css";
@@ -14,7 +13,6 @@ function App() {
   const [playlistTracks, setPlaylist] = useState<TrackType[]>([]);
   const [playlistName, setPlaylistName] = useState("My Playlist");
   const [query, setQuery] = useState<string>("");
-  const [playListNameQuery, setPlaylistNameQuery] = useState<string>("");
   const [hasSearched, setHasSearched] = useState<boolean>(false);
 
   // Sample data for tracks
@@ -23,7 +21,7 @@ function App() {
       id: 1,
       title: "Taste",
       artist: "Sabrina Carpenter",
-      cover: "cover1.jpg",
+      cover: "../../assets/images/artist_profile.jpg",
       duration: "2:37",
       album: "Singular Act I",
     },
@@ -31,7 +29,7 @@ function App() {
       id: 2,
       title: "Please Please Please",
       artist: "Sabrina Carpenter",
-      cover: "cover2.jpg",
+      cover: "../../assets/images/artist_profile.jpg",
       duration: "3:06",
       album: "Singular Act II",
     },
@@ -39,7 +37,7 @@ function App() {
       id: 3,
       title: "Bad Chem",
       artist: "Sabrina Carpenter",
-      cover: "cover3.jpg",
+      cover: "../../assets/images/artist_profile.jpg",
       duration: "2:51",
       album: "Evolution",
     },
@@ -47,7 +45,7 @@ function App() {
       id: 4,
       title: "On Purpose",
       artist: "Sabrina Carpenter",
-      cover: "cover4.jpg",
+      cover: "../../assets/images/artist_profile.jpg",
       duration: "3:58",
       album: "Evolution",
     },
@@ -55,7 +53,7 @@ function App() {
       id: 5,
       title: "Why",
       artist: "Sabrina Carpenter",
-      cover: "cover5.jpg",
+      cover: "../../assets/images/artist_profile.jpg",
       duration: "2:52",
       album: "Singular Act I",
     },
@@ -63,7 +61,7 @@ function App() {
       id: 6,
       title: "Exhale",
       artist: "Sabrina Carpenter",
-      cover: "cover6.jpg",
+      cover: "../../assets/images/artist_profile.jpg",
       duration: "3:00",
       album: "Singular Act II",
     },
@@ -101,7 +99,9 @@ function App() {
     <>
       <div className={styles.appContainer}>
         <div className={styles.overlay}></div>
-        <h1 className={styles.header}>PlayListify</h1>
+        <div className={styles.headerContainer}>
+          <h1 className={styles.header}>PlayListify</h1>
+        </div>
         <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
         <div className={styles.bodyContainer}>
           <SearchResults

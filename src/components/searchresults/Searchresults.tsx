@@ -7,7 +7,7 @@ interface SearchResultsProps {
   songs: TrackType[];
   onAddToPlaylist: (trackId: number) => void;
   searchResults: TrackType[];
-  topArtist?: TrackType; // optional if you sometimes do not have a top artist
+  topArtist: TrackType; // optional if you sometimes do not have a top artist
   hasSearched: boolean;
 }
 

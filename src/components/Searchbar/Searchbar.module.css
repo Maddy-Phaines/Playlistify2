@@ -12,40 +12,62 @@
 .searchContainer {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
-.searchBarContainer {
+.homeIcon {
   display: flex;
-  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  padding: 12px;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
 }
 
-.homeContainer {
-  margin-right: 10px; /* Provide some spacing between the home icon and the search bar */
+.form {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between home icon, input, and search icon */
+}
+
+.searchBar {
+  display: flex;
+  flex-grow: 1; /* Allow the input to grow and take up available space */
+  max-width: 600px; /* Control max width */
+  padding: 8px 12px; /* Ensure padding inside the input is enough for readability */
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 .btnContainer {
   display: flex;
   align-items: center; /* Align the buttons vertically in the center */
-}
-
-.searchBarInput {
-  flex-grow: 1; /* Allow the search input to expand to fill space */
-  margin-right: 10px; /* Spacing between input and button */
-  border-radius: 20px;
-  color: antiquewhite;
-  background-color: #333;
-  padding: 8px 40px;
-}
-
-.homeContainer {
-  border-radius: 100%;
-  padding: 6px;
-  background-color: #333;
-  color: antiquewhite;
+  justify-content: center;
 }
 
 .searchBarIcon {
-  padding: 6px;
-  margin-left: 10px;
+  padding: 12px;
   border-radius: 100%;
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+}
+.headerContainer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.header {
+  font-size: 2rem;
+  color: white;
+  margin: 0.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .header {
+    font-size: 3rem;
+  }
 }

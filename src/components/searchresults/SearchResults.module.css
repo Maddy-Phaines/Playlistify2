@@ -2,12 +2,12 @@
   /* src/components/SearchResults.module.css */
   color: white;
   background-color: #121212;
-  background-color: rgba(0, 0, 0, 0.5); /* Translucent dark overlay */
+  background-color: rgba(255, 39, 255, 0.3);
   padding: 20px;
   border-radius: 4px;
   margin: 0 10px;
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
   flex-direction: column;
   text-align: center;
 }

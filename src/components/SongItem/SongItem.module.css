@@ -1,10 +1,13 @@
 /* src/components/SongItem.module.css */
 .trackItem {
   display: flex;
+  justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.5); /* Translucent dark overlay */
   justify-content: space-between; /* Adjusts children to each side of container */
   align-items: center; /* Vertical alignment */
-  padding: 10px 0;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 10px 0;
   text-align: center;
 }
 

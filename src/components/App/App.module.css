@@ -1,13 +1,13 @@
 /* App.module.css */
 .appContainer {
   position: relative;
-  background-color: #000000; /* Dark background */
-  background-color: #2a0053; /* Dark purple base color */
+  background-image: url("../../assets/images/4882341.jpg");
+  background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
   width: 100vw;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -24,19 +24,52 @@
   background-color: rgba(42, 0, 83, 0.8);
   z-index: -1;
 }
-.bodyContainer {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
 
-  gap: 2rem;
-}
 .header {
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
-  color: #30d158; /* Neon green */
+  color: white;
 }
-@media only screen and (min-width: 767px) {
+.headerContainer {
+  text-align: center;
+}
+
+.bodyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+  gap: 2rem;
+}
+/* Style each panel to take full width on mobile */
+.searchResults,
+.playlist {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Translucent background for readability */
+  border-radius: 8px;
+  box-sizing: border-box; /* Include padding in the element's width */
+}
+
+/* Media Query for Larger Screens */
+@media only screen and (min-width: 768px) {
+  .bodyContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .searchResults,
+  .playlist {
+    flex-basis: 45%; /* Each takes up 45% of the container width */
+  }
+
   .header {
     font-size: 4rem;
     margin-bottom: 55px;

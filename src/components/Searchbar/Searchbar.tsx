@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faSearch, faList } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faSearch } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Searchbar.module.css";
 
 interface SearchBarProps {
@@ -17,30 +17,29 @@ function SearchBar({ query, setQuery, onSearch }: SearchBarProps) {
 
   return (
     <div className={styles.searchContainer}>
-      <div className={styles.homeContainer}>
-        <FontAwesomeIcon
-          icon={faHome}
-          style={{ color: "white", fontSize: "18px" }}
-        />
-      </div>
-      <form onSubmit={handleSubmit} className={styles.searchBarContainer}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.homeIcon}>
+          <FontAwesomeIcon
+            icon={faHome}
+            style={{ color: "white", fontSize: "18px" }}
+          />
+        </div>
         <input
           id="search-input"
           type="text"
           placeholder="What do you want to play?"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className={styles.searchBarInput} // Check this is correct in your CSS file
+          className={styles.searchBar} // Check this is correct in your CSS file
         />
-        <div className={styles.btnContainer}>
-          <button
-            type="submit"
-            aria-label="Perform search"
-            className={styles.searchBarIcon}
-          >
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </div>
+
+        <button
+          type="submit"
+          aria-label="Perform search"
+          className={styles.searchBarIcon}
+        >
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
       </form>
     </div>
   );
