@@ -3,6 +3,7 @@ import React from "react";
 import Track from "../Track/Track"; // Assuming Track is a component for individual track items
 import styles from "./Playlist.module.css";
 import { Track as TrackType } from "../../types/trackint";
+import sharedStyles from "../shared/shared.module.css";
 
 interface PlaylistProps {
   tracks: TrackType[];
@@ -25,12 +26,8 @@ const Playlist: React.FC<PlaylistProps> = ({
     e.preventDefault();
   };
   return (
-    <div className={styles.playlistContainer}>
-      <img
-        src="/path-to-your-image.jpg"
-        className={styles.playlistImage}
-        alt="Playlist"
-      />
+    <div className={sharedStyles.panel}>
+      <img src={tracks.cover} className={styles.playlistImage} alt="Playlist" />
       <form onSubmit={handleSubmit}>
         <button className={styles.hiddenBtn} type="submit">
           playlist name

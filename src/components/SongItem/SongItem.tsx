@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./SongItem.module.css";
 import { Track as TrackType } from "../../types/trackint";
 import Button from "../Button/Button";
+import sharedStyles from "../shared/shared.module.css";
 
 // SongItem: Displays an individual song.
 const SongItem: React.FC<{
@@ -9,12 +10,12 @@ const SongItem: React.FC<{
   onAddToPlaylist: (id: number) => void;
 }> = ({ song, onAddToPlaylist }) => {
   return (
-    <div className={styles.trackItem}>
+    <div className={sharedStyles.trackItem}>
+      <img
+        className={`${sharedStyles.trackCover}`}
+        style={{ backgroundImage: `url(${song.cover})` }} // Use inline styles for dynamic image URLs
+      />
       <div className={styles.trackDetails}>
-        <div
-          className={styles.trackCover}
-          style={{ backgroundImage: `url(${song.cover})` }} // Use inline styles for dynamic image URLs
-        />
         <span className={styles.trackName}>{song.title}</span>
         <span className={styles.trackAlbum}>{song.album}</span>
       </div>

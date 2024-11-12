@@ -1,0 +1,63 @@
+.truncateText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 768px) {
+  .truncateText {
+    white-space: normal; /* Allows text to wrap normally */
+    overflow: visible; /* Shows the full text */
+    text-overflow: unset; /* Removes ellipsis */
+  }
+}
+
+.playlistContainer {
+  color: white;
+  background-color: #121212;
+  background-color: rgba(255, 39, 255, 0.3);
+  padding: 20px;
+  border-radius: 4px;
+  margin: 0 10px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  text-align: center;
+}
+.panel {
+  /* src/components/SearchResults.module.css */
+  color: white;
+  background-color: #121212;
+  background-color: rgba(255, 39, 255, 0.3);
+  padding: 20px;
+  border-radius: 4px;
+  margin: 0 10px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  text-align: center;
+}
+
+.trackItem {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.5); /* Translucent dark overlay */
+  justify-content: space-between; /* Adjusts children to each side of container */
+  align-items: center; /* Vertical alignment */
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+  text-align: center;
+  gap: 10px;
+}
+
+.trackCover {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  margin-right: 10px;
+  display: flex;
+}
+
+.flex {
+  display: flex;
+}

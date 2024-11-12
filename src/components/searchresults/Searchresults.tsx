@@ -2,6 +2,7 @@ import { Track as TrackType } from "../../types/trackint";
 import styles from "./SearchResults.module.css";
 import ArtistProfile from "../ArtistProfile/ArtistProfile";
 import SongList from "../SongList/SongList";
+import sharedStyles from "../shared/shared.module.css";
 
 interface SearchResultsProps {
   songs: TrackType[];
@@ -27,7 +28,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 
   // If there are results, render the component normally
   return (
-    <div className={styles.resultsPanel}>
+    <div className={sharedStyles.panel}>
       {searchResults.length > 0 && topArtist && (
         <div className={styles.container}>
           <ArtistProfile artist={topArtist.artist} cover={topArtist.cover} />
