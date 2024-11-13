@@ -2,6 +2,7 @@ import styles from "./Track.module.css";
 import { Track as TrackType } from "../../types/trackint";
 import Button from "../Button/Button";
 import sharedStyles from "../shared/shared.module.css";
+import artistProfile from "../../assets/images/artist_profile.jpg";
 
 interface TrackProps {
   track: TrackType;
@@ -13,7 +14,7 @@ function Track({ track, onAddToPlaylist, onRemoveFromPlaylist }: TrackProps) {
   return (
     <div className={sharedStyles.trackItem}>
       <img
-        src={track.cover}
+        src={artistProfile}
         style={{ backgroundImage: `url(${track.cover})` }}
         alt={`${track.title} cover`}
         className={sharedStyles.trackCover}

@@ -1,4 +1,4 @@
-// src/types/types.ts
+// src/epsty / types.ts;
 export interface Track {
   id: number;
   title: string;

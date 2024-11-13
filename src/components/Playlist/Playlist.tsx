@@ -4,12 +4,15 @@ import Track from "../Track/Track"; // Assuming Track is a component for individ
 import styles from "./Playlist.module.css";
 import { Track as TrackType } from "../../types/trackint";
 import sharedStyles from "../shared/shared.module.css";
+import artistProfile from "../../assets/images/artist_profile.jpg";
+import Button from "../Button/Button";
 
 interface PlaylistProps {
   tracks: TrackType[];
   onRemoveFromPlaylist: (trackId: number) => void;
   playlistName: string;
   setPlaylistName: (name: string) => void;
+  onSaveToPlaylist: (trackId: number) => void;
 }
 
 const Playlist: React.FC<PlaylistProps> = ({
@@ -17,6 +20,7 @@ const Playlist: React.FC<PlaylistProps> = ({
   onRemoveFromPlaylist,
   playlistName,
   setPlaylistName,
+  onSaveToPlaylist,
 }) => {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPlaylistName(e.target.value);
@@ -27,7 +31,11 @@ const Playlist: React.FC<PlaylistProps> = ({
   };
   return (
     <div className={sharedStyles.panel}>
-      <img src={tracks.cover} className={styles.playlistImage} alt="Playlist" />
+      <img
+        src={artistProfile}
+        className={styles.playlistImage}
+        alt="Playlist"
+      />
       <form onSubmit={handleSubmit}>
         <button className={styles.hiddenBtn} type="submit">
           playlist name
@@ -49,6 +57,7 @@ const Playlist: React.FC<PlaylistProps> = ({
           />
         ))}
       </div>
+      <Button onClick={onSaveToPlaylist} />
     </div>
   );
 };

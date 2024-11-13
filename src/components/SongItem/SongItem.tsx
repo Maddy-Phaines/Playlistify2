@@ -3,6 +3,7 @@ import styles from "./SongItem.module.css";
 import { Track as TrackType } from "../../types/trackint";
 import Button from "../Button/Button";
 import sharedStyles from "../shared/shared.module.css";
+import artistProfile from "../../assets/images/artist_profile.jpg";
 
 // SongItem: Displays an individual song.
 const SongItem: React.FC<{
@@ -13,7 +14,7 @@ const SongItem: React.FC<{
     <div className={sharedStyles.trackItem}>
       <img
         className={`${sharedStyles.trackCover}`}
-        style={{ backgroundImage: `url(${song.cover})` }} // Use inline styles for dynamic image URLs
+        src={artistProfile} // Use inline styles for dynamic image URLs
       />
       <div className={styles.trackDetails}>
         <span className={styles.trackName}>{song.title}</span>

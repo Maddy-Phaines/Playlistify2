@@ -5,7 +5,7 @@ import styles from "./Button.module.css";
 
 interface ButtonProps {
   onClick: () => void;
-  iconType: "add" | "remove";
+  iconType?: "add" | "remove";
 }
 // Resuable component with an anonymous callback function. Has no 'knowledge' of the song object.
 const Button: React.FC<ButtonProps> = ({ onClick, iconType }) => {
