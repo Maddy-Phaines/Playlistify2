@@ -1,18 +1,19 @@
 /* pass the playlist tracks from the component responsible for the Playlist to the component responsible for the Tracklist. */
-import React from "react";
+import { useState } from "react";
 import Track from "../Track/Track"; // Assuming Track is a component for individual track items
 import styles from "./Playlist.module.css";
 import { Track as TrackType } from "../../types/trackint";
 import sharedStyles from "../shared/shared.module.css";
 import artistProfile from "../../assets/images/artist_profile.jpg";
-import Button from "../Button/Button";
 
 interface PlaylistProps {
   tracks: TrackType[];
   onRemoveFromPlaylist: (trackId: number) => void;
   playlistName: string;
   setPlaylistName: (name: string) => void;
-  onSaveToPlaylist: (trackId: number) => void;
+  savePlaylist: (playlistArray: TrackType[]) => void;
+  setPlaylist: React.Dispatch<React.SetStateAction<TrackType[]>>; // Correct type
+  isSaved: boolean;
 }
 
 const Playlist: React.FC<PlaylistProps> = ({
@@ -20,7 +21,10 @@ const Playlist: React.FC<PlaylistProps> = ({
   onRemoveFromPlaylist,
   playlistName,
   setPlaylistName,
-  onSaveToPlaylist,
+  savePlaylist,
+  setPlaylist, // Make sure this is used if passed as a prop
+  // Use this to show the success message
+  isSaved,
 }) => {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPlaylistName(e.target.value);
@@ -28,6 +32,17 @@ const Playlist: React.FC<PlaylistProps> = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+  };
+
+  const [hasAttemptedSave, setHasAttemptedSave] = useState(false);
+
+  const handleSavePlaylist = () => {
+    setHasAttemptedSave(true);
+    if (tracks.length === 0) {
+      console.log("No tracks to save!");
+      return;
+    }
+    savePlaylist(tracks);
   };
   return (
     <div className={sharedStyles.panel}>
@@ -57,7 +72,13 @@ const Playlist: React.FC<PlaylistProps> = ({
           />
         ))}
       </div>
-      <Button onClick={onSaveToPlaylist} />
+      <button onClick={handleSavePlaylist}>Save to Spotify</button>
+      {hasAttemptedSave &&
+        (isSaved ? (
+          <p>Playlist saved successfully!</p>
+        ) : (
+          <p>Add some tracks to save!</p>
+        ))}
     </div>
   );
 };

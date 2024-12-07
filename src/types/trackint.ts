@@ -3,7 +3,8 @@ export interface Track {
   id: number;
   title: string;
   artist: string;
-  cover: string;
   duration: string;
   album: string;
+  cover: string;
+  uri: string;
 }
