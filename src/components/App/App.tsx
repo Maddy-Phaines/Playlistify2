@@ -12,7 +12,7 @@ import Playlist from "../Playlist/Playlist";
 function App() {
   const [searchResults, setSearchResults] = useState<TrackType[]>([]);
   const [playlist, setPlaylist] = useState<TrackType[]>([]);
-  const [playlistName, setPlaylistName] = useState("My Playlist");
+  const [playlistName, setPlaylistName] = useState("");
   const [query, setQuery] = useState<string>("");
   const [hasSearched, setHasSearched] = useState<boolean>(false);
   const [isSaved, setIsSaved] = useState(false);
@@ -114,12 +114,16 @@ Return Type (string[]): Indicates that the output is an array of strings (URIs).
     playlistArray: TrackType[],
     setPlaylist: React.Dispatch<React.SetStateAction<TrackType[]>>
   ): void => {
+    if (!playlistName.trim()) {
+      console.warn("Playlist name cannot be empty.");
+      return;
+    }
     if (!playlistArray || playlistArray.length === 0) {
       console.log("No track to save!");
       return;
     }
     const uris = extractUris(playlistArray);
-    console.log("Saving playlist ${playlistName} with URIs:", uris);
+    console.log(`Saving '${playlistName}' with URIs:`, uris);
     resetPlaylist(setPlaylist);
   };
   const handleSearch = (query: string) => {

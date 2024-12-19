@@ -22,28 +22,51 @@ const Playlist: React.FC<PlaylistProps> = ({
   playlistName,
   setPlaylistName,
   savePlaylist,
-  setPlaylist, // Make sure this is used if passed as a prop
+  // Make sure this is used if passed as a prop
   // Use this to show the success message
   isSaved,
 }) => {
+  const [hasAttemptedSave, setHasAttemptedSave] = useState(false);
+  const [playlistNameError, setPlaylistNameError] = useState(false);
+  const [tracksError, setTracksError] = useState(false);
+
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPlaylistName(e.target.value);
+    if (playlistNameError) setPlaylistNameError(false);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
-  const [hasAttemptedSave, setHasAttemptedSave] = useState(false);
-
   const handleSavePlaylist = () => {
     setHasAttemptedSave(true);
-    if (tracks.length === 0) {
-      console.log("No tracks to save!");
+
+    // Validate playlist name
+    if (!playlistName.trim()) {
+      setPlaylistNameError(true);
+      console.warn("Playlist name cannot be empty.");
       return;
+    } else {
+      setPlaylistNameError(false);
     }
+
+    // Validate tracks
+    if (tracks.length === 0) {
+      setTracksError(true);
+      console.warn("No tracks to save!");
+      return;
+    } else {
+      setTracksError(false);
+    }
+    // Save the playlist
     savePlaylist(tracks);
+
+    // Clear playlist name and reset placeholder
+    setPlaylistName("");
+    console.log("Playlist saved and cleared");
   };
+
   return (
     <div className={sharedStyles.panel}>
       <img
@@ -55,13 +78,18 @@ const Playlist: React.FC<PlaylistProps> = ({
         <button className={styles.hiddenBtn} type="submit">
           playlist name
         </button>
-        <input
-          type="text"
-          placeholder="Give your playlist a name..."
-          value={playlistName}
-          className={styles.playlistName}
-          onChange={handleNameChange}
-        />
+        <div>
+          <input
+            type="text"
+            placeholder="Give your playlist a name..."
+            value={playlistName}
+            className={styles.playlistName}
+            onChange={handleNameChange}
+          />
+          {hasAttemptedSave && playlistNameError && (
+            <p style={{ color: "red" }}>Please give your playlist a name!</p>
+          )}
+        </div>
       </form>
       <div className={styles.trackList}>
         {tracks.map((track) => (
@@ -72,13 +100,16 @@ const Playlist: React.FC<PlaylistProps> = ({
           />
         ))}
       </div>
+
       <button onClick={handleSavePlaylist}>Save to Spotify</button>
-      {hasAttemptedSave &&
-        (isSaved ? (
-          <p>Playlist saved successfully!</p>
-        ) : (
-          <p>Add some tracks to save!</p>
-        ))}
+
+      {hasAttemptedSave && tracksError && (
+        <p style={{ color: "red" }}>Add some tracks to save!</p>
+      )}
+
+      {hasAttemptedSave && isSaved && (
+        <p style={{ color: "white" }}>Playlist saved successfully!</p>
+      )}
     </div>
   );
 };

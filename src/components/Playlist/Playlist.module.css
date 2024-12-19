@@ -49,8 +49,9 @@
 .playlistImage {
   width: 50px; /* small image, adjust as necessary */
   height: 50px;
-  border-radius: 50%; /* circular image */
+  border-radius: 50% !important; /* circular image */
   margin-right: 20px;
+  background-color: blue;
 }
 
 .playlistName {
